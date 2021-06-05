@@ -14,7 +14,7 @@
 
 # Microservices Deployment on AWS with Terraform and K3S:
 
-## Step 01 - Setup terraform account on AWS 
+## Step 01 - Setup terraform account on AWS:
 #### Skip to Step 02, if you already have working Terraform account with all permissions
 
 #### Setting Up an AWS Operations Account
@@ -153,7 +153,7 @@ $ aws s3api create-bucket --bucket {YOUR_S3_BUCKET_NAME} \
 
 
 
-## Step-02: Setup your local Terraform environment
+## Step-02: Setup your local Terraform Environment:
 
 - create private and public SSH Keys. Terraform will use them to run scripts on your EC2 instances:
 
@@ -208,7 +208,7 @@ export KUBECONFIG=./ks3/k3s.yaml
 
 
 
-## Step-03: Create "customer-management:1.0.0" docker image and push it to docker hub
+## Step-03: Create "customer-management:1.0.0" Docker Image and push it to Docker Hub:
 
 - go back to the root directory of this github repository
 
@@ -224,7 +224,7 @@ docker push test/customer-management:1.0.0
 
 
 
-## Step-04: Deploy "customer-management" microservice to AWS:
+## Step-04: Deploy "customer-management" Microservice to AWS:
 
 - go to "**EC2 -> Load Balancers**" in your AWS Console
 
