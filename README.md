@@ -253,6 +253,31 @@ export KUBECONFIG=./ks3/k3s.yaml
 kubectl apply -f ../k3s
 ``` 
 
+## Step-05: Configure your Keycloak Authorization Server:
+
+- let's assume that the name of your "**CNAME**" record is "**users.test.com**" 
+
+- let's assume that "**DNS name**" of your Load Balancer is "**mtc-loadbalancer.com**"
+
+- let's assume that you correctly registered your domain, created hosted zone, registered AWS SSL Certificate for your domain and created "**CNAME**" record with the name "**users.test.com**" and the value "**mtc-loadbalancer.com**"
+
+- go to "**https://users.test.com/"
+
+- you will be redirected to **Keycloak Home Page**
+
+- go to "**Administration Console**" and login with admin credentials:
+
+###### **admin user:** admin@keycloak
+
+###### **admin password:** my-keycloak-password
+
+- configure your Keycloak Server as described in this article: **https://www.baeldung.com/spring-boot-keycloak*"
+
+- make sure that you set correct **Valid Redirection URIs**, like this: **https://users.test.com/customermgmt/***" (see **https://www.baeldung.com/spring-boot-keycloak**" for details)
+
+
+## Step-06: Test your Microservices:
+
 - let's assume that the name of your "**CNAME**" record is "**users.test.com**" 
 
 - let's assume that "**DNS name**" of your Load Balancer is "**mtc-loadbalancer.com**"
@@ -288,7 +313,7 @@ kubectl apply -f ../k3s
 - #### Now you can protect any number of microservices by your Keycloak Server and use Single Sign-On Authentication for all these microservices
 
 
-## Step-05: Clean-Up:
+## Step-07: Clean-Up:
 
 ```
 terraform destroy --auto-approve  
