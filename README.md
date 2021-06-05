@@ -269,7 +269,7 @@ kubectl apply -f ../k3s
 
 - go to "**https://users.test.com/usermgmt/swagger-ui/index.html"
 
-- you should see successfully loaded "**Swagger UI**" page
+- you should see successfully loaded **user-management** "**Swagger UI**" page (deprecated, not protected by Keycloak)
 
 - go to "**https://users.test.com/whoami"
 
