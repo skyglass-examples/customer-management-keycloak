@@ -282,7 +282,7 @@ kubectl apply -f ../k3s
 
 ### You successfully deployed Keycloak Authorization Server, which protects your Spring Boot "Customer Management" Application
 ### Spring Boot seamlessly handled the entire process of calling the Keycloak OAuth2 Authorization Server to authenticate the user
-### Now you can protect any number of microservices by your Keycloak Server and use Single Sign-On Authentication for all these microservices
+#### Now you can protect any number of microservices by your Keycloak Server and use Single Sign-On Authentication for all these microservices
 
 
 ## Step-05: Clean-Up:
