@@ -1,18 +1,22 @@
 # Customer Management Microservice
 
 Keycloak Administration Console is available on: 
-### https://users.skycomposer.net/auth
+#### https://users.skycomposer.net/auth
 
 **admin user:** admin@keycloak
+
 **admin password:** my-keycloak-password
 
 Customer Portal, secured with Keycloak Server is available on: 
-### https://users.skycomposer.net/customermgmt
+
+#### https://users.skycomposer.net/customermgmt
 
 **user:** user
+
 **password:** test123
 
 This article will show you how to add more users in Keycloak Administration Console:
+
 #### https://www.baeldung.com/spring-boot-keycloak
 
 Make sure that all users have **user** role, otherwise you won't be able to see the **customers page**
@@ -281,9 +285,9 @@ kubectl apply -f ../k3s
 ##### You implemented Traefik Ingress Controller, which acts as a Gateway Load Balancer for your microservices
 ##### Now you can add any number of microservices to your K3S Kubernetes Cluster and use only one Gateway Load Balancer for all these microservice 
 
-##### You successfully deployed Keycloak Authorization Server, which protects your Spring Boot "Customer Management" Application
-##### Spring Boot seamlessly handled the entire process of calling the Keycloak OAuth2 Authorization Server to authenticate the user
-##### Now you can protect any number of microservices by your Keycloak Server and use Single Sign-On Authentication for all these microservices
+### You successfully deployed Keycloak Authorization Server, which protects your Spring Boot "Customer Management" Application
+### Spring Boot seamlessly handled the entire process of calling the Keycloak OAuth2 Authorization Server to authenticate the user
+### Now you can protect any number of microservices by your Keycloak Server and use Single Sign-On Authentication for all these microservices
 
 
 ## Step-05: Clean-Up:
