@@ -1,0 +1,83 @@
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: keycloak
+  labels:
+    app: keycloak
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: keycloak
+  template:
+    metadata:
+      labels:
+        app: keycloak
+    spec:
+      containers:
+        - name: keycloak
+          image: jboss/keycloak:12.0.4
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+              hostPort: 8080
+          volumeMounts:
+            - name: keycloak-data
+              mountPath: /opt/jboss/keycloak/standalone/data
+          env:
+            - name: KEYCLOAK_USER
+              valueFrom:
+                configMapKeyRef:
+                  name: keycloak
+                  key: KEYCLOAK_USER
+            - name: KEYCLOAK_MGMT_USER
+              valueFrom:
+                configMapKeyRef:
+                  name: keycloak
+                  key: KEYCLOAK_MGMT_USER
+            - name: JAVA_OPTS_APPEND
+              valueFrom:
+                configMapKeyRef:
+                  name: keycloak
+                  key: JAVA_OPTS_APPEND
+            - name: DB_VENDOR
+              valueFrom:
+                configMapKeyRef:
+                  name: keycloak
+                  key: DB_VENDOR
+            - name: PROXY_ADDRESS_FORWARDING
+              valueFrom:
+                configMapKeyRef:
+                  name: keycloak
+                  key: PROXY_ADDRESS_FORWARDING
+            - name: KEYCLOAK_HOSTNAME
+              valueFrom:
+                configMapKeyRef:
+                  name: keycloak
+                  key: KEYCLOAK_HOSTNAME
+            - name: KEYCLOAK_LOGLEVEL
+              valueFrom:
+                configMapKeyRef:
+                  name: keycloak
+                  key: KEYCLOAK_LOGLEVEL
+            - name: ROOT_LOGLEVEL
+              valueFrom:
+                configMapKeyRef:
+                  name: keycloak
+                  key: ROOT_LOGLEVEL
+            - name: KEYCLOAK_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: keycloak
+                  key: KEYCLOAK_PASSWORD
+            - name: KEYCLOAK_MGMT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: keycloak
+                  key: KEYCLOAK_MGMT_PASSWORD
+      volumes:
+        - name: keycloak-data
+          persistentVolumeClaim:
+            claimName: keycloak-pvc
