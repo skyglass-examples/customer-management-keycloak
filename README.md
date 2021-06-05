@@ -261,7 +261,7 @@ kubectl apply -f ../k3s
 
 - let's assume that you correctly registered your domain, created hosted zone, registered AWS SSL Certificate for your domain and created "**CNAME**" record with the name "**users.test.com**" and the value "**mtc-loadbalancer.com**"
 
-- go to "**https://users.test.com/"
+- go to "**https://users.test.com/**"
 
 - you will be redirected to **Keycloak Home Page**
 
@@ -271,9 +271,9 @@ kubectl apply -f ../k3s
 
 ###### **admin password:** my-keycloak-password
 
-- configure your Keycloak Server as described in this article: **https://www.baeldung.com/spring-boot-keycloak*"
+- configure your Keycloak Server as described in this article: **https://www.baeldung.com/spring-boot-keycloak**"
 
-- make sure that you set correct **Valid Redirection URIs**, like this: **https://users.test.com/customermgmt/***" (see **https://www.baeldung.com/spring-boot-keycloak**" for details)
+- make sure that you set correct **Valid Redirection URIs**, like this: **https://users.test.com/customermgmt/*** (see **https://www.baeldung.com/spring-boot-keycloak** for details)
 
 
 ## Step-06: Test your Microservices:
