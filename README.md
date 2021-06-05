@@ -271,7 +271,7 @@ kubectl apply -f ../k3s
 
 ###### Make sure that you set correct **Valid Redirection URIs**, like this: "**https://users.test.com/customermgmt/***"
 
-###### Make sure that all users have "**user**" role, otherwise you won't be able to see the **customers page**
+###### Make sure that new users have "**user**" role, otherwise you won't be able to see the **customers page**
 
 
 ## Step-06: Test your Microservices:
