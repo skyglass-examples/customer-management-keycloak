@@ -12,7 +12,7 @@
 
 **password:** test123
 
-This article will show you how to add more users on **Keycloak Administration Console:** **https://www.baeldung.com/spring-boot-keycloak**
+This article will show you how to add more users with **Keycloak Administration Console:** **https://www.baeldung.com/spring-boot-keycloak**
 
 Make sure that all users have **user** role, otherwise you won't be able to see the **customers page**
 
