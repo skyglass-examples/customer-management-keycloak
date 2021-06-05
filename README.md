@@ -2,15 +2,15 @@
 
 **Keycloak Administration Console** is available here: **https://users.skycomposer.net/auth**
 
-**admin user:** admin@keycloak
+###### **admin user:** admin@keycloak
 
-**admin password:** my-keycloak-password
+###### **admin password:** my-keycloak-password
 
 **Customer Portal**, secured with **Keycloak Server** is available here: **https://users.skycomposer.net/customermgmt**
 
-**user:** user
+####### **user:** user
 
-**password:** test123
+####### **password:** test123
 
 This article will show you how to configure your **Keycloak Administration Console:** **https://www.baeldung.com/spring-boot-keycloak**
 
