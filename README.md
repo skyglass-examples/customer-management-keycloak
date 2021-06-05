@@ -1,7 +1,21 @@
-# User Management Microservice
+# Customer Management Microservice
 
-REST API for user management microservice with swagger UI is available on 
-### https://users.skycomposer.net/usermgmt/swagger-ui/index.html
+Keycloak Administration Console is available on: 
+### https://users.skycomposer.net/auth
+
+**admin user:** admin@keycloak
+**admin password:** my-keycloak-password
+
+Customer Portal, secured with Keycloak Server is available on: 
+### https://users.skycomposer.net/customermgmt
+
+**user:** user
+**password:** test123
+
+This article will show you how to add more users in Keycloak Administration Console:
+#### https://www.baeldung.com/spring-boot-keycloak
+
+Make sure that all users have **user** role, otherwise you won't be able to see the **customers page**
 
 # Microservices Deployment on AWS with Terraform and K3S:
 
@@ -195,7 +209,7 @@ export KUBECONFIG=./ks3/k3s.yaml
 
 
 
-## Step-03: Create "user-management:1.0.0" docker image and push it to docker hub
+## Step-03: Create "customer-management:1.0.0" docker image and push it to docker hub
 
 - go back to the root directory of this github repository
 
@@ -209,12 +223,12 @@ with the name of your docker hub repository
 -  for example, if "**test**" is the name of your docker hub repository, then run: 
 ```
 mvn clean install
-docker push test/user-management:1.0.0
+docker push test/customer-management:1.0.0
 ````
 
 
 
-## Step-04: Deploy "user-management" microservice to AWS:
+## Step-04: Deploy "customer-management" microservice to AWS:
 
 - go to "**EC2 -> Load Balancers**" in your AWS Console
 
@@ -228,15 +242,13 @@ docker push test/user-management:1.0.0
 
 - go to "**k3s-traefik**" folder of this github repository
 
-- Edit "**200-usermgmt.yaml**": replace "**skyglass/user-management:1.0.0**" with the name of your docker image
-
-- Edit "**0006-traefik-service.yaml**": set "**service.beta.kubernetes.io/aws-load-balancer-ssl-cert**" to cerfiticate_arn of your AWS Certificate
+- Edit "**250-customermgmt.yaml**": replace "**skyglass/customer-management:1.0.0**" with the name of your docker image
 
 - go back to "**terraform**" directory and run the following commands:
 ``` 
 export KUBECONFIG=./ks3/k3s.yaml
 
-kubectl apply -f ../k3s-traefik
+kubectl apply -f ../k3s
 ``` 
 
 - let's assume that the name of your "**CNAME**" record is "**users.test.com**" 
@@ -244,6 +256,13 @@ kubectl apply -f ../k3s-traefik
 - let's assume that "**DNS name**" of your Load Balancer is "**mtc-loadbalancer.com**"
 
 - let's assume that you correctly registered your domain, created hosted zone, registered AWS SSL Certificate for your domain and created "**CNAME**" record with the name "**users.test.com**" and the value "**mtc-loadbalancer.com**"
+
+- go to "**https://users.test.com/customermgmt"
+
+- you should see successfully loaded "**Customer Portal**" page
+- Click "**Enter the intranet:**" link: you will be redirected to **Keycloak Login Page**
+- Enter correct login and password: you will be redirected to **Existing Customers Page**
+- Click "**logout**" link: your user will be successfully logged out
 
 - go to "**https://users.test.com/usermgmt/swagger-ui/index.html"
 
@@ -261,6 +280,10 @@ kubectl apply -f ../k3s-traefik
 ### You significantly reduced your AWS bills by removing AWS EKS and NAT gateway!
 ##### You implemented Traefik Ingress Controller, which acts as a Gateway Load Balancer for your microservices
 ##### Now you can add any number of microservices to your K3S Kubernetes Cluster and use only one Gateway Load Balancer for all these microservice 
+
+##### You successfully deployed Keycloak Authorization Server, which protects your Spring Boot "Customer Management" Application
+##### Spring Boot seamlessly handled the entire process of calling the Keycloak OAuth2 Authorization Server to authenticate the user
+##### Now you can protect any number of microservices by your Keycloak Server and use Single Sign-On Authentication for all these microservices
 
 
 ## Step-05: Clean-Up:
