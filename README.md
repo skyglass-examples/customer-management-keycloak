@@ -277,12 +277,12 @@ kubectl apply -f ../k3s
 ### Congratulations! You sucessfully created Minimal Kubernetes Cluster on AWS with Terraform and K3S!
 - ### Now you can deploy your own docker containers to this cluster with minimal costs from AWS!
 - ### You significantly reduced your AWS bills by removing AWS EKS and NAT gateway!
-- ### You implemented Traefik Ingress Controller, which acts as a Gateway Load Balancer for your microservices
-- ### Now you can add any number of microservices to your K3S Kubernetes Cluster and use only one Gateway Load Balancer for all these microservice 
+- #### You implemented Traefik Ingress Controller, which acts as a Gateway Load Balancer for your microservices
+- #### Now you can add any number of microservices to your K3S Kubernetes Cluster and use only one Gateway Load Balancer for all these microservice 
 
 - ### You successfully deployed Keycloak Authorization Server, which protects your Spring Boot "Customer Management" Application
 - ### Spring Boot seamlessly handled the entire process of calling the Keycloak OAuth2 Authorization Server to authenticate the user
-- ### Now you can protect any number of microservices by your Keycloak Server and use Single Sign-On Authentication for all these microservices
+- #### Now you can protect any number of microservices by your Keycloak Server and use Single Sign-On Authentication for all these microservices
 
 
 ## Step-05: Clean-Up:
