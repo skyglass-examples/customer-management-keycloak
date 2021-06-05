@@ -14,7 +14,7 @@
 
 This article will show you how to configure your **Keycloak Administration Console:** **https://www.baeldung.com/spring-boot-keycloak**
 
-Make sure that all users have **user** role, otherwise you won't be able to see the **customers page**
+###### Make sure that all users have **user** role, otherwise you won't be able to see the **customers page**
 
 # Microservices Deployment on AWS with Terraform and K3S:
 
