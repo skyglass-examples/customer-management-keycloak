@@ -187,6 +187,10 @@ dbpassword = "s00p3rS3cr3t"
 
 - replace "**skyglass-terraform**" in "**backends.tf**" with the name of your S3 bucket, created in "**Step 01**"
 
+- replace "**us-east-1**" in "**backends.tf**" with the name of your **AWS region**
+
+- replace "**us-east-1**" in "**variables.tf**" with the name of your **AWS region**
+
 
 - run the following commands:
 
