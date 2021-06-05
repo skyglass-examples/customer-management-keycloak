@@ -1,18 +1,18 @@
 # Customer Management Microservice
 
-Keycloak Administration Console is available here: #### https://users.skycomposer.net/auth
+Keycloak Administration Console is available here: **https://users.skycomposer.net/auth**
 
 **admin user:** admin@keycloak
 
 **admin password:** my-keycloak-password
 
-Customer Portal, secured with Keycloak Server is available here: #### https://users.skycomposer.net/customermgmt
+Customer Portal, secured with Keycloak Server is available here: **https://users.skycomposer.net/customermgmt**
 
 **user:** user
 
 **password:** test123
 
-This article will show you how to add more users in Keycloak Administration Console: #### https://www.baeldung.com/spring-boot-keycloak
+This article will show you how to add more users in Keycloak Administration Console: **https://www.baeldung.com/spring-boot-keycloak**
 
 Make sure that all users have **user** role, otherwise you won't be able to see the **customers page**
 
