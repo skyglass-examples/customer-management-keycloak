@@ -267,7 +267,7 @@ kubectl apply -f ../k3s
 
 ###### **admin password:** my-keycloak-password
 
-- configure your Keycloak Server as described in this article: **https://www.baeldung.com/spring-boot-keycloak**
+- configure your **Keycloak Server** as described in this article: **https://www.baeldung.com/spring-boot-keycloak**
 
 ###### Make sure that you set correct **Valid Redirection URIs**, like this: "**https://users.test.com/customermgmt/***" (see **https://www.baeldung.com/spring-boot-keycloak** for details)
 
