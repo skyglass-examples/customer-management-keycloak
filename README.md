@@ -12,10 +12,6 @@
 
 ###### **password:** test123
 
-This article will show you how to **add new users** and configure your **Keycloak Administration Console:** **https://www.baeldung.com/spring-boot-keycloak**
-
-###### Make sure that all users have "**user**" role, otherwise you won't be able to see the **customers page**
-
 # Microservices Deployment on AWS with Terraform and K3S:
 
 ## Step 01 - Setup terraform account on AWS 
@@ -273,7 +269,9 @@ kubectl apply -f ../k3s
 
 - configure your Keycloak Server as described in this article: **https://www.baeldung.com/spring-boot-keycloak**
 
-- make sure that you set correct **Valid Redirection URIs**, like this: "**https://users.test.com/customermgmt/***" (see **https://www.baeldung.com/spring-boot-keycloak** for details)
+###### Make sure that you set correct **Valid Redirection URIs**, like this: "**https://users.test.com/customermgmt/***" (see **https://www.baeldung.com/spring-boot-keycloak** for details)
+
+###### Make sure that all users have "**user**" role, otherwise you won't be able to see the **customers page**
 
 
 ## Step-06: Test your Microservices:
