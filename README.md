@@ -216,12 +216,9 @@ export KUBECONFIG=./ks3/k3s.yaml
 
 - go back to the root directory of this github repository
 
-- replace "**skyglass**" in "**pom.xml**"
-```
-<repository>skyglass/${project.name}</repository>
-``` 
+- Edit "**pom.xml:**" replace "**skyglass**" in "**<repository>skyglass/${project.name}</repository>**" with the name of your docker hub repository
 
-with the name of your docker hub repository
+- Edit "**application.properties:**" replace the value of "**keycloak.auth-server-url**" with the **URL** of your **Keycloak Server**
 
 -  for example, if "**test**" is the name of your docker hub repository, then run: 
 ```
@@ -243,7 +240,9 @@ docker push test/customer-management:1.0.0
 
 - create "**CNAME**" record with the name "**users.test.com**" and the value "**mtc-loadbalancer.com**"
 
-- go to "**k3s-traefik**" folder of this github repository
+- go to "**k3s**" folder of this github repository
+
+- Edit "**150-keycloak-config.yaml**": replace "**KEYCLOAK_HOSTNAME**" with the **hostname** of your **Keycloak Server**
 
 - Edit "**250-customermgmt.yaml**": replace "**skyglass/customer-management:1.0.0**" with the name of your docker image
 
