@@ -249,6 +249,8 @@ docker push test/customer-management:1.0.0
 
 - Edit "**250-customermgmt.yaml**": replace "**skyglass/customer-management:1.0.0**" with the name of your docker image
 
+- Edit "**300-traefik-ingress.yaml**": replace "**users.skycomposer.net**" with the name of your sub-domain ("**users.test.com**", for example)
+
 - go back to "**terraform**" directory and run the following commands:
 ``` 
 export KUBECONFIG=./ks3/k3s.yaml
