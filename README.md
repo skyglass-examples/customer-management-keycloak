@@ -126,13 +126,6 @@ aws iam attach-group-policy --group-name Ops-Accounts\
 
 ```
 
-With the new policy created, all that’s left is to attach it to our user group. Run the following command, replacing the token we’ve called {YOUR_POLICY_ARN} with the ARN from your policy:
-
-```
-$ aws iam attach-group-policy --group-name Ops-Accounts \
-   --policy-arn {YOUR_POLICY_ARN}
-```
-
 #### Creating an S3 Backend for Terraform
 
 - If you are hosting your bucket in the us-east-1 region, use the following command:
