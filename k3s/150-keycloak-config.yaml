@@ -7,7 +7,7 @@ data:
   KEYCLOAK_MGMT_USER: mgmt@keycloak
   JAVA_OPTS_APPEND: '-Djboss.http.port=8080'
   PROXY_ADDRESS_FORWARDING: 'true'
-  KEYCLOAK_HOSTNAME: 'keycloak.skycomposer.net'
+  KEYCLOAK_HOSTNAME: 'users.skycomposer.net'
   KEYCLOAK_LOGLEVEL: INFO
   ROOT_LOGLEVEL: INFO
   DB_VENDOR: H2
