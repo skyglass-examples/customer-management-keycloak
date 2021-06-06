@@ -31,7 +31,7 @@
 
 #### Access key and secret key
 
-- Before we do anything else, we’ll need to make a note of our new user’s keys. Click the Show link and copy and paste both the “**Access key ID**” and the “**Secret access key**” into a temporary file. We’ll use both of these later in this section with our automated pipeline. Be careful with this key material as it will give whoever has it an opportunity to create resources in your AWS environment—at your expense.
+- Before we do anything else, we’ll need to make a note of our new user’s keys. Click the Show link and copy and paste both the “**Access key ID**” and the “**Secret access key**” into a temporary file. We’ll use both of these later. Be careful with this key material as it will give whoever has it an opportunity to create resources in your AWS environment — at your expense.
 
 - Make sure you take note of the access key ID and the secret access key that were generated before you leave this screen. You’ll need them later.
 
@@ -80,7 +80,6 @@ The first thing we’ll do is make the ops-account user part of a new group call
 ```
 $ aws iam create-group --group-name Ops-Accounts
 ```
-$ aws iam create-group --group-name Ops-Accounts
 
 If this is successful, the AWS CLI will display the group that has been created:
 
@@ -286,11 +285,11 @@ kubectl apply -f ../k3s
 - Enter correct login and password: you will be redirected to **Existing Customers Page**
 - Click "**logout**" link: your user will be successfully logged out
 
-- go to "**https://users.test.com/usermgmt/swagger-ui/index.html"
+- go to "**https://users.test.com/usermgmt/swagger-ui/index.html**"
 
 - you should see successfully loaded **user-management** "**Swagger UI**" page (deprecated, not protected by Keycloak)
 
-- go to "**https://users.test.com/whoami"
+- go to "**https://users.test.com/whoami**"
 
 - you should see successfully loaded "**WhoAmI**" page
 
@@ -300,8 +299,8 @@ kubectl apply -f ../k3s
 ### Congratulations! You sucessfully created Minimal Kubernetes Cluster on AWS with Terraform and K3S!
 - ### Now you can deploy your own docker containers to this cluster with minimal costs from AWS!
 - ### You significantly reduced your AWS bills by removing AWS EKS and NAT gateway!
-- #### You implemented Traefik Ingress Controller, which acts as a Gateway Load Balancer for your microservices
-- #### Now you can add any number of microservices to your K3S Kubernetes Cluster and use only one Gateway Load Balancer for all these microservice 
+- #### You also implemented Traefik Ingress Controller, which acts as a Gateway API for your microservices
+- #### Now you can add any number of microservices to your K3S Kubernetes Cluster and use only one Gateway Traefik Controller for all these microservices 
 
 - ### You successfully deployed Keycloak Authorization Server, which protects your Spring Boot "Customer Management" Application
 - ### Spring Boot seamlessly handled the entire process of calling the Keycloak OAuth2 Authorization Server to authenticate the user
