@@ -12,7 +12,7 @@
 
 ###### **password:** test123
 
-# Microservices Deployment on AWS with Terraform and K3S:
+# Microservices Deployment on AWS with Terraform, K3S Kubernetes Cluster, Traefik Ingress Controller and Keycloak OAuth2 Authorization Server:
 
 ## Step 01 - Setup terraform account on AWS:
 #### Skip to Step 02, if you already have working Terraform account with all permissions
@@ -222,9 +222,7 @@ mvn clean install
 docker push test/customer-management:1.0.0
 ````
 
-
-
-## Step-04: Deploy "customer-management" Microservice to AWS:
+## Step-04: Register your domain "test.com", create AWS Certificate for "*.test.com" and create Hosted Zone CNAME Record with DNS Name of your Load Balancer:
 
 - go to "**EC2 -> Load Balancers**" in your AWS Console
 
@@ -235,6 +233,15 @@ docker push test/customer-management:1.0.0
 - let's assume that the name of your domain is "**test.com**" and "**DNS name**" of your LoadBalancer is "**mtc-loadbalancer.com**"
 
 - create "**CNAME**" record with the name "**users.test.com**" and the value "**mtc-loadbalancer.com**"
+
+- let's assume that the name of your "**CNAME**" record is "**users.test.com**" 
+
+- let's assume that "**DNS name**" of your Load Balancer is "**mtc-loadbalancer.com**"
+
+- let's assume that you correctly registered your domain, created hosted zone, registered AWS SSL Certificate for your domain "***.test.com**" and created "**CNAME**" record with the name "**users.test.com**" and the value "**mtc-loadbalancer.com**"
+
+
+## Step-05: Deploy "customer-management" Microservice to AWS:
 
 - go to "**k3s**" folder of this github repository
 
@@ -249,13 +256,7 @@ export KUBECONFIG=./ks3/k3s.yaml
 kubectl apply -f ../k3s
 ``` 
 
-## Step-05: Configure your Keycloak Authorization Server:
-
-- let's assume that the name of your "**CNAME**" record is "**users.test.com**" 
-
-- let's assume that "**DNS name**" of your Load Balancer is "**mtc-loadbalancer.com**"
-
-- let's assume that you correctly registered your domain, created hosted zone, registered AWS SSL Certificate for your domain and created "**CNAME**" record with the name "**users.test.com**" and the value "**mtc-loadbalancer.com**"
+## Step-06: Configure your Keycloak Authorization Server:
 
 - go to "**https://users.test.com/**"
 
@@ -274,13 +275,7 @@ kubectl apply -f ../k3s
 ###### Make sure that new users have "**user**" role, otherwise you won't be able to see the **customers page**
 
 
-## Step-06: Test your Microservices:
-
-- let's assume that the name of your "**CNAME**" record is "**users.test.com**" 
-
-- let's assume that "**DNS name**" of your Load Balancer is "**mtc-loadbalancer.com**"
-
-- let's assume that you correctly registered your domain, created hosted zone, registered AWS SSL Certificate for your domain and created "**CNAME**" record with the name "**users.test.com**" and the value "**mtc-loadbalancer.com**"
+## Step-07: Test your Microservices:
 
 - go to "**https://users.test.com/customermgmt"
 
@@ -311,7 +306,7 @@ kubectl apply -f ../k3s
 - #### Now you can protect any number of microservices by your Keycloak Server and use Single Sign-On Authentication for all these microservices
 
 
-## Step-07: Clean-Up:
+## Step-08: Clean-Up:
 
 ```
 terraform destroy --auto-approve  
