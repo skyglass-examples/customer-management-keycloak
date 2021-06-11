@@ -158,6 +158,8 @@ access_ip = "0.0.0.0/0"
 public_key_path = "/Users/dddd/.ssh/keymtc.pub"
 private_key_path = "/Users/dddd/.ssh/keymtc"
 certificate_arn = "arn:aws:acm:ddddddddddddddddddddf"
+shared_credentials_file="/Users/ddddd/.aws/credentials"
+profile_account="ops-account"
 
 #--db vars --
 dbname     = "rancher"
@@ -168,6 +170,10 @@ dbpassword = "s00p3rS3cr3t"
 - make sure you provide correct path for "**public_key_path**" and "**private_key_path**"
 
 - make sure you provide correct "**certifcate_arn**" for your AWS certificate, registered to your domain. You need to register your domain and create certificate for your domain in AWS
+
+- make sure you provide correct path for your AWS credentials in "**shared_credentials_file**"
+
+- make sure you provide correct aws profile account name in "**profile_account**" (it should be "**ops-account**", if you followed instructions in "**Step 01**")
 
 - replace "**skyglass-terraform**" in "**backends.tf**" with the name of your S3 bucket, created in "**Step 01**"
 
