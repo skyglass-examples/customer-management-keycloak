@@ -8,20 +8,7 @@ variable "profile" {
 
 variable "access_ip" {}
 
-#-------database variables
-
-variable "dbname" {
-  type = string
-}
-
-variable "dbuser" {
-  type = string
-}
-
-variable "dbpassword" {
-  type      = string
-  sensitive = true
-}
+variable "profile_account" {}
 
 variable "public_key_path" {
   type      = string
@@ -34,6 +21,11 @@ variable "private_key_path" {
 }
 
 variable "certificate_arn" {
+  type      = string
+  sensitive = true
+}
+
+variable "shared_credentials_file" {
   type      = string
   sensitive = true
 }
