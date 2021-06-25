@@ -160,11 +160,6 @@ private_key_path = "/Users/dddd/.ssh/keymtc"
 certificate_arn = "arn:aws:acm:ddddddddddddddddddddf"
 shared_credentials_file="/Users/ddddd/.aws/credentials"
 profile_account="ops-account"
-
-#--db vars --
-dbname     = "rancher"
-dbuser     = "bobby"
-dbpassword = "s00p3rS3cr3t"
 ```
 
 - make sure you provide correct path for "**public_key_path**" and "**private_key_path**"
