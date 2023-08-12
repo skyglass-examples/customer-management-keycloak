@@ -1,77 +1,48 @@
-# Customer Management Microservice
+# Deploy Secured Microservices on AWS with Spring Boot, Terraform, Kubernetes, Keycloak Oauth2 Authorization Server, Github Actions, Spring Cloud Gateway, External DNS, SSL, Nginx Ingress Controller, Spring Cloud Kubernetes, Open API Documentation and Grafana Observability Stack
 
-**Keycloak Administration Console** is available here: **https://users.skycomposer.net/auth**
+**Keycloak Administration Console** is available here: **https://keycloak.greeta.net**
 
-###### **admin user:** admin@keycloak
+###### **admin user:** admin
 
-###### **admin password:** my-keycloak-password
+###### **admin password:** admin
 
-**Customer Portal**, secured with **Keycloak Server** is available here: **https://users.skycomposer.net/customermgmt**
+**Movies Online UI**, secured with **Keycloak Server** is available here: **https://movie.greeta.net**
 
-###### **user:** user
+###### **manager user:** admin
 
-###### **password:** test123
+###### **manager password:** admin
 
-# Microservices Deployment on AWS with Terraform, K3S Kubernetes Cluster, Traefik Ingress Controller and Keycloak OAuth2 Authorization Server:
+###### **regular user:** admin
+
+###### **regular password:** admin
+
+# Microservices Deployment on AWS with Spring Boot, Terraform, Kubernetes, Keycloak Oauth2 Authorization Server, Github Actions, Spring Cloud Gateway, External DNS, SSL, Nginx Ingress Controller, Spring Cloud Kubernetes, Open API Documentation and Grafana Observability Stack
 
 ## Step 01 - Setup terraform account on AWS:
 #### Skip to Step 02, if you already have working Terraform account with all permissions
 
-#### Setting Up an AWS Operations Account
+#### Setting Up Terraform infrastructure
 
- - Log in to your AWS management console with your root user credentials. Once you’ve logged in, you should be presented with a list of AWS services. Find and select the IAM service.
+ - Log in to your AWS account from commmand-line
 
- - Select the Users link from the IAM navigation menu on the lefthand side of the screen. Click the Add user button to start the IAM user creation process
-
- - Enter **ops-account** in the User name field. We also want to use this account to acccess the CLI and API, so select “Programmatic access” as the AWS “Access type”
-
--  Select “Attach existing policies directly” from the set of options at the top. Search for a policy called IAMFullAccess and select it by ticking its checkbox
-
-- If everything looks OK to you, click the Create user button.
-
-#### Access key and secret key
-
-- Before we do anything else, we’ll need to make a note of our new user’s keys. Click the Show link and copy and paste both the “**Access key ID**” and the “**Secret access key**” into a temporary file. We’ll use both of these later. Be careful with this key material as it will give whoever has it an opportunity to create resources in your AWS environment — at your expense.
-
-- Make sure you take note of the access key ID and the secret access key that were generated before you leave this screen. You’ll need them later.
-
-- We have now created a user called **ops-account** with permission to make IAM changes. 
-
-#### Configure the AWS CLI
+#### Create terraform.auto.tfvars in your erp-infra repository and provide your own aws_region and ssl_certificate_arn
 
 ```
-$ aws configure
-AWS Access Key ID [****************AMCK]: AMIB3IIUDHKPENIBWUVGR
-AWS Secret Access Key [****************t+ND]: /xd5QWmsqRsM1Lj4ISUmKoqV7/...
-Default region name [None]: eu-west-2
-Default output format [None]: json
+aws_region = "eu-central-1"
+environment = "dev"
+business_division = "it"
+cluster_name = "erp-cluster"
+ssl_certificate_arn = "arn:aws:acm:eu-central-1:your-certificate-arn"
 ```
 
-You can test that you’ve configured the CLI correctly by listing the user accounts that have been created. Run the iam list-users command to test your setup:
+Run terraform
 
 ```
-$ aws iam list-users
-{
-    "Users": [
-        {
-            "Path": "/",
-            "UserName": "admin",
-            "UserId": "AYURIGDYE7PXW3QCYYEWM",
-            "Arn": "arn:aws:iam::842218941332:user/admin",
-            "CreateDate": "2019-03-21T14:01:03+00:00"
-        },
-        {
-            "Path": "/",
-            "UserName": "ops-account",
-            "UserId": "AYUR4IGBHKZTE3YVBO2OB",
-            "Arn": "arn:aws:iam::842218941332:user/ops-account",
-            "CreateDate": "2020-07-06T15:15:31+00:00"
-        }
-    ]
-}
+terraform apply --auto-approve
 ```
 
-If you’ve done everything correctly, you should see a list of your AWS user accounts. That indicates that AWS CLI is working properly and has access to your instance. Now, we can set up the permissions our operations account will need.
+If you see error during creation of grafana observability stack, run terraform apply again.
+Please, note, that terraform will run command aws eks --region ${var.region} update-kubeconfig --name ${var.cluster_name} after creation of kubernetes cluster, which will delete your current ./kube/config file. Don't forget to create backup, if needed!
 
 #### Setting Up AWS Permissions
 
